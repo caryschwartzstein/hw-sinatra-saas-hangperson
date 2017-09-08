@@ -33,8 +33,8 @@ class HangpersonGame
   def word_with_guesses
     to_return = ''
     @word.each_char do |letter|
-      if @guesses.include?(letter)
-        to_return += letter
+      if @guesses.include?(letter.downcase) || @guesses.include?(letter.upcase)
+        to_return += letter.downcase
       else
         to_return += '-'
       end
