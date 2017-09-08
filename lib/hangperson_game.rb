@@ -17,12 +17,12 @@ class HangpersonGame
   
   def guess(letter)
     if !(letter =~ /[A-Za-z]/)
-      raise ArgumentError
+      raise ArgumentError: "not a letter"
     elsif (@guesses + @wrong_guesses).include?(letter.upcase) || 
       (@guesses + @wrong_guesses).include?(letter.downcase)
       return false
     end
-    if @word.include?(letter)
+    if @word.include?(letter.upcase) || @word.include?(letter.downcase)
       @guesses += letter
     else
       @wrong_guesses += letter
